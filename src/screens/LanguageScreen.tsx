@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useLang } from '../context/LanguageContext';
-import { Lang } from '../i18n/strings';
+import type { Lang } from '../i18n/strings';
 import s from './screens.module.css';
 
 const OPTIONS: { value: Lang; label: string }[] = [
