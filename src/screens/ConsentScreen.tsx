@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useLang } from '../context/LanguageContext';
 import { useSession } from '../context/SessionContext';
+import SakuraPetals from '../components/SakuraPetals';
 import s from './screens.module.css';
 
 export default function ConsentScreen({ onEnter }: { onEnter: () => void }) {
@@ -15,8 +16,9 @@ export default function ConsentScreen({ onEnter }: { onEnter: () => void }) {
 
   return (
     <div className={s.screen}>
+      <SakuraPetals />
       <div className={s.center}>
-        <span className={s.emoji}>🐾</span>
+        <span className={s.emoji}>🌸</span>
         <h1 className={s.title}>{t.welcome}</h1>
         <p className={s.subtitle}>{t.visibilityQuestion}</p>
 

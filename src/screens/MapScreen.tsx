@@ -159,15 +159,15 @@ export default function MapScreen({
         <Circle
           center={[PARK.latitude, PARK.longitude]}
           radius={PARK.radius}
-          pathOptions={{ color: '#6dbf6d', fillColor: '#6dbf6d', fillOpacity: 0.07, weight: 2 }}
+          pathOptions={{ color: '#ff8fb3', fillColor: '#ff8fb3', fillOpacity: 0.08, weight: 2.5 }}
         />
 
         {/* Utilisateur courant */}
         {isVisible && userCoords && (
           <CircleMarker
             center={userCoords}
-            radius={10}
-            pathOptions={{ color: '#6dbf6d', fillColor: '#fff', fillOpacity: 1, weight: 3 }}>
+            radius={11}
+            pathOptions={{ color: '#ff6f9e', fillColor: '#fff', fillOpacity: 1, weight: 4 }}>
             {note && <Tooltip permanent direction="top" offset={[0, -12]}>{note}</Tooltip>}
           </CircleMarker>
         )}
@@ -177,8 +177,8 @@ export default function MapScreen({
           <CircleMarker
             key={u.sessionId}
             center={[u.position.lat, u.position.lng]}
-            radius={8}
-            pathOptions={{ color: '#6dbf6d', fillColor: '#6dbf6d', fillOpacity: 1, weight: 2 }}>
+            radius={9}
+            pathOptions={{ color: '#fff', fillColor: '#ff8fb3', fillOpacity: 1, weight: 2.5 }}>
             {u.note && (
               <Tooltip permanent direction="top" offset={[0, -10]}>{u.note}</Tooltip>
             )}

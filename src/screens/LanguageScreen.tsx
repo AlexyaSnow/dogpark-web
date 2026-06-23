@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useLang } from '../context/LanguageContext';
 import type { Lang } from '../i18n/strings';
+import SakuraPetals from '../components/SakuraPetals';
 import s from './screens.module.css';
 
 const OPTIONS: { value: Lang; label: string }[] = [
@@ -19,8 +20,9 @@ export default function LanguageScreen({ onDone }: { onDone: () => void }) {
 
   return (
     <div className={s.screen}>
+      <SakuraPetals />
       <div className={s.center}>
-        <span className={s.emoji}>🐾</span>
+        <span className={s.emoji}>🌸</span>
         <h1 className={s.title}>Parc à chiens<br />Dog Park</h1>
         <p className={s.tag}>Boisbriand</p>
 

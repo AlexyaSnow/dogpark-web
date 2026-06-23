@@ -3,6 +3,7 @@ import { useLang } from '../context/LanguageContext';
 import { useSession } from '../context/SessionContext';
 import { connectSocket } from '../services/socket';
 import { containsBannedWord } from '../utils/wordFilter';
+import SakuraPetals from '../components/SakuraPetals';
 import s from './screens.module.css';
 
 const MAX_CHARS = 80;
@@ -63,7 +64,8 @@ export default function NoteScreen({ onBack }: { onBack: () => void }) {
   const slotsUsed = 3 - notesLeft;
 
   return (
-    <div className={s.screen} style={{ background: '#0f1f0f' }}>
+    <div className={s.screen}>
+      <SakuraPetals count={8} />
       <div className={s.noteInner}>
 
         <div className={s.noteHeader}>
