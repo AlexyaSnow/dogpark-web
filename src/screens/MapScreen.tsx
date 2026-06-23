@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import { MapContainer, TileLayer, CircleMarker, Circle, Tooltip, useMap } from 'react-leaflet';
 import { useLang } from '../context/LanguageContext';
 import { useSession } from '../context/SessionContext';
+import { useTheme, MAP_COLORS } from '../context/ThemeContext';
 import { connectSocket, disconnectSocket } from '../services/socket';
 import { PARK, isInsidePark } from '../utils/geofence';
 import s from './screens.module.css';
@@ -46,6 +47,8 @@ export default function MapScreen({
   onNote: () => void;
 }) {
   const { t } = useLang();
+  const { theme } = useTheme();
+  const mc = MAP_COLORS[theme];
   const { session, setVisible, setInPark, endSession } = useSession();
   const [remoteUsers, setRemoteUsers] = useState<RemoteUser[]>([]);
   const [userCoords, setUserCoords] = useState<[number, number] | null>(null);
@@ -159,7 +162,7 @@ export default function MapScreen({
         <Circle
           center={[PARK.latitude, PARK.longitude]}
           radius={PARK.radius}
-          pathOptions={{ color: '#ff8fb3', fillColor: '#ff8fb3', fillOpacity: 0.08, weight: 2.5 }}
+          pathOptions={{ color: mc.circle, fillColor: mc.circle, fillOpacity: 0.08, weight: 2.5 }}
         />
 
         {/* Utilisateur courant */}
@@ -167,7 +170,7 @@ export default function MapScreen({
           <CircleMarker
             center={userCoords}
             radius={11}
-            pathOptions={{ color: '#ff6f9e', fillColor: '#fff', fillOpacity: 1, weight: 4 }}>
+            pathOptions={{ color: mc.selfStroke, fillColor: mc.selfFill, fillOpacity: 1, weight: 4 }}>
             {note && <Tooltip permanent direction="top" offset={[0, -12]}>{note}</Tooltip>}
           </CircleMarker>
         )}
@@ -178,7 +181,7 @@ export default function MapScreen({
             key={u.sessionId}
             center={[u.position.lat, u.position.lng]}
             radius={9}
-            pathOptions={{ color: '#fff', fillColor: '#ff8fb3', fillOpacity: 1, weight: 2.5 }}>
+            pathOptions={{ color: mc.otherStroke, fillColor: mc.otherFill, fillOpacity: 1, weight: 2.5 }}>
             {u.note && (
               <Tooltip permanent direction="top" offset={[0, -10]}>{u.note}</Tooltip>
             )}

@@ -1,4 +1,4 @@
-/* ─── Champ de pétales ───────────────────────────────────── */
+/* ─── Champ de particules (pétales / feuilles) ───────────── */
 .field {
   position: fixed;
   inset: 0;
@@ -10,7 +10,7 @@
 .petal {
   position: absolute;
   top: -24px;
-  border-radius: 75% 5% 75% 5%;
+  border-radius: var(--petal-shape, 75% 5% 75% 5%);
   opacity: 0.85;
   will-change: transform;
   animation-name: fall;
@@ -18,9 +18,9 @@
   animation-iteration-count: infinite;
 }
 
-.tone0 { background: #ffc2d6; }
-.tone1 { background: #ff9ec0; }
-.tone2 { background: #ffd9e4; }
+.tone0 { background: var(--petal-0, #ffc2d6); }
+.tone1 { background: var(--petal-1, #ff9ec0); }
+.tone2 { background: var(--petal-2, #ffd9e4); }
 
 @keyframes fall {
   0% {

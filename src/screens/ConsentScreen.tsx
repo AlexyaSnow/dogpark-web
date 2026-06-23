@@ -2,10 +2,12 @@ import { useState } from 'react';
 import { useLang } from '../context/LanguageContext';
 import { useSession } from '../context/SessionContext';
 import SakuraPetals from '../components/SakuraPetals';
+import { useTheme, HERO_EMOJI } from '../context/ThemeContext';
 import s from './screens.module.css';
 
 export default function ConsentScreen({ onEnter }: { onEnter: () => void }) {
   const { t } = useLang();
+  const { theme } = useTheme();
   const { startSession } = useSession();
   const [visible, setVisible] = useState(true);
 
@@ -18,7 +20,7 @@ export default function ConsentScreen({ onEnter }: { onEnter: () => void }) {
     <div className={s.screen}>
       <SakuraPetals />
       <div className={s.center}>
-        <span className={s.emoji}>🌸</span>
+        <span className={s.emoji}>{HERO_EMOJI[theme]}</span>
         <h1 className={s.title}>{t.welcome}</h1>
         <p className={s.subtitle}>{t.visibilityQuestion}</p>
 

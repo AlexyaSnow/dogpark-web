@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { useLang } from '../context/LanguageContext';
 import type { Lang } from '../i18n/strings';
 import SakuraPetals from '../components/SakuraPetals';
+import ThemeSwitcher from '../components/ThemeSwitcher';
+import { useTheme, HERO_EMOJI } from '../context/ThemeContext';
 import s from './screens.module.css';
 
 const OPTIONS: { value: Lang; label: string }[] = [
@@ -11,6 +13,7 @@ const OPTIONS: { value: Lang; label: string }[] = [
 
 export default function LanguageScreen({ onDone }: { onDone: () => void }) {
   const { lang, setLang } = useLang();
+  const { theme } = useTheme();
   const [chosen, setChosen] = useState<Lang>(lang);
 
   function handleContinue() {
@@ -22,9 +25,11 @@ export default function LanguageScreen({ onDone }: { onDone: () => void }) {
     <div className={s.screen}>
       <SakuraPetals />
       <div className={s.center}>
-        <span className={s.emoji}>🌸</span>
+        <span className={s.emoji}>{HERO_EMOJI[theme]}</span>
         <h1 className={s.title}>Parc à chiens<br />Dog Park</h1>
         <p className={s.tag}>Boisbriand</p>
+
+        <ThemeSwitcher />
 
         <div className={s.options}>
           {OPTIONS.map(opt => (

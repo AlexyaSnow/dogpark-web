@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { LanguageProvider, useLang } from './context/LanguageContext';
 import { SessionProvider } from './context/SessionContext';
+import { ThemeProvider } from './context/ThemeContext';
 import LanguageScreen from './screens/LanguageScreen';
 import ConsentScreen from './screens/ConsentScreen';
 import MapScreen from './screens/MapScreen';
@@ -43,10 +44,12 @@ function Router() {
 
 export default function App() {
   return (
-    <LanguageProvider>
-      <SessionProvider>
-        <Router />
-      </SessionProvider>
-    </LanguageProvider>
+    <ThemeProvider>
+      <LanguageProvider>
+        <SessionProvider>
+          <Router />
+        </SessionProvider>
+      </LanguageProvider>
+    </ThemeProvider>
   );
 }
