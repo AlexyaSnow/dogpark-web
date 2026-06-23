@@ -43,6 +43,11 @@ export interface Strings {
   bannedWord: string;
   deleteNote: string;
   invisibleInfo: string;
+  spectate: string;
+  spectateHint: string;
+  spectatorBanner: string;
+  enterAsParticipant: string;
+  noOneHere: string;
 }
 
 const strings: Record<Lang, Strings> = {
@@ -107,6 +112,11 @@ const strings: Record<Lang, Strings> = {
     deleteNote: '🗑  Supprimer ma note',
     invisibleInfo:
       "💡 Si tu passes en invisible, ta note disparaît de la carte — mais elle n'est pas consommée. Elle revient quand tu redeviens visible.",
+    spectate: '👀  Voir qui est au parc',
+    spectateHint: 'Regarde la carte à distance, sans y être. Pratique pour voir si un ami est présent grâce à sa note.',
+    spectatorBanner: '👀 Vue à distance · tu n\'apparais pas sur la carte',
+    enterAsParticipant: 'Je suis au parc →',
+    noOneHere: 'Personne n\'est visible au parc pour le moment.',
   },
 
   en: {
@@ -164,6 +174,11 @@ const strings: Record<Lang, Strings> = {
     deleteNote: '🗑  Delete my note',
     invisibleInfo:
       "💡 Going invisible hides your note from the map — but it's not consumed. It comes back when you go visible again.",
+    spectate: '👀  See who\'s at the park',
+    spectateHint: 'View the map remotely, without being there. Handy to check if a friend is around thanks to their note.',
+    spectatorBanner: '👀 Remote view · you don\'t appear on the map',
+    enterAsParticipant: 'I\'m at the park →',
+    noOneHere: 'No one is visible at the park right now.',
   },
 };
 

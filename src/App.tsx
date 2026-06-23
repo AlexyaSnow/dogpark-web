@@ -18,6 +18,7 @@ function isParkOpen() {
 function Router() {
   const { ready } = useLang();
   const [screen, setScreen] = useState<Screen | null>(null);
+  const [spectator, setSpectator] = useState(false);
 
   useEffect(() => {
     if (!ready) return;
@@ -35,8 +36,19 @@ function Router() {
     <>
       {screen === 'language' && <LanguageScreen onDone={() => go(isParkOpen() ? 'consent' : 'closed')} />}
       {screen === 'closed'   && <ClosedScreen />}
-      {screen === 'consent'  && <ConsentScreen onEnter={() => go('map')} />}
-      {screen === 'map'      && <MapScreen onLeave={() => go('consent')} onNote={() => go('note')} />}
+      {screen === 'consent'  && (
+        <ConsentScreen
+          onEnter={() => { setSpectator(false); go('map'); }}
+          onSpectate={() => { setSpectator(true); go('map'); }}
+        />
+      )}
+      {screen === 'map'      && (
+        <MapScreen
+          spectator={spectator}
+          onLeave={() => go('consent')}
+          onNote={() => go('note')}
+        />
+      )}
       {screen === 'note'     && <NoteScreen onBack={() => go('map')} />}
     </>
   );

@@ -5,7 +5,7 @@ import SakuraPetals from '../components/SakuraPetals';
 import { useTheme, HERO_EMOJI } from '../context/ThemeContext';
 import s from './screens.module.css';
 
-export default function ConsentScreen({ onEnter }: { onEnter: () => void }) {
+export default function ConsentScreen({ onEnter, onSpectate }: { onEnter: () => void; onSpectate: () => void }) {
   const { t } = useLang();
   const { theme } = useTheme();
   const { startSession } = useSession();
@@ -41,6 +41,10 @@ export default function ConsentScreen({ onEnter }: { onEnter: () => void }) {
 
         <button className={s.primaryBtn} onClick={handleEnter}>
           {t.enterPark}
+        </button>
+
+        <button className={s.textBtnGreen} onClick={onSpectate} style={{ marginTop: 4 }}>
+          {t.spectate}
         </button>
       </div>
     </div>

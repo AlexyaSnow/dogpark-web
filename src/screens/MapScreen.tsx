@@ -40,9 +40,11 @@ function RecenterOnce({ coords }: { coords: [number, number] | null }) {
 }
 
 export default function MapScreen({
+  spectator = false,
   onLeave,
   onNote,
 }: {
+  spectator?: boolean;
   onLeave: () => void;
   onNote: () => void;
 }) {
@@ -72,11 +74,11 @@ export default function MapScreen({
       onLeave();
     });
 
-    if (session) {
+    if (!spectator && session) {
       socket.emit('join', { sessionId: session.sessionId, visible: session.visible });
     }
 
-    startGPS(socket);
+    if (!spectator) startGPS(socket);
 
     return () => {
       if (sessionRef.current) {
@@ -190,7 +192,7 @@ export default function MapScreen({
       </MapContainer>
 
       {/* Overlay hors-zone */}
-      {isOutOfPark && (
+      {!spectator && isOutOfPark && (
         <div className={s.overlay}>
           <span className={s.overlayEmoji}>📍</span>
           <h2 className={s.overlayTitle}>{t.outOfPark}</h2>
@@ -199,7 +201,7 @@ export default function MapScreen({
         </div>
       )}
 
-      {locationDenied && (
+      {!spectator && locationDenied && (
         <div className={s.overlay}>
           <span className={s.overlayEmoji}>🔒</span>
           <h2 className={s.overlayTitle}>{t.gpsRequired}</h2>
@@ -227,8 +229,8 @@ export default function MapScreen({
         <div style={{ width: 70 }} />
       </div>
 
-      {/* Footer */}
-      {!isOutOfPark && !locationDenied && (
+      {/* Footer participant */}
+      {!spectator && !isOutOfPark && !locationDenied && (
         <div className={s.mapFooter}>
           <button
             className={`${s.mapToggle} ${isVisible ? s.mapToggleActive : ''}`}
@@ -247,6 +249,16 @@ export default function MapScreen({
           ) : (
             <p className={s.invisibleHint}>{t.invisibleNoteHint}</p>
           )}
+        </div>
+      )}
+
+      {/* Footer spectateur — vue à distance */}
+      {spectator && (
+        <div className={s.mapFooter}>
+          <p className={s.invisibleHint}>{t.spectatorBanner}</p>
+          <button className={s.mapToggle} onClick={handleLeave}>
+            {t.enterAsParticipant}
+          </button>
         </div>
       )}
     </div>
