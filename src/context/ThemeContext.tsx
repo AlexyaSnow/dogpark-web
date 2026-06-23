@@ -4,8 +4,8 @@ import type { ReactNode } from 'react';
 export type Theme = 'sakura' | 'nature' | 'neutre';
 
 export const THEMES: { value: Theme; label: string; emoji: string }[] = [
-  { value: 'sakura', label: 'Sakura', emoji: '🌸' },
   { value: 'nature', label: 'Nature', emoji: '🌿' },
+  { value: 'sakura', label: 'Sakura', emoji: '🌸' },
   { value: 'neutre', label: 'Neutre', emoji: '✨' },
 ];
 
@@ -25,7 +25,7 @@ const STORAGE_KEY = 'dogpark_theme';
 const ThemeContext = createContext<ThemeContextType | null>(null);
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>('sakura');
+  const [theme, setThemeState] = useState<Theme>('nature');
 
   useEffect(() => {
     const stored = localStorage.getItem(STORAGE_KEY) as Theme | null;
