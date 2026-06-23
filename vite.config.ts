@@ -8,11 +8,11 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
       manifest: {
-        name: 'Parc à chiens — Boisbriand',
-        short_name: 'Parc à chiens',
-        description: 'Carte en temps réel du parc à chiens de Boisbriand. Aucune installation requise.',
-        theme_color: '#1a2e1a',
-        background_color: '#1a2e1a',
+        name: 'Caniparc Chavigny — Boisbriand',
+        short_name: 'Caniparc Chavigny',
+        description: 'Carte en temps réel du parc canin Chavigny à Boisbriand. Aucune installation requise.',
+        theme_color: '#4caf6a',
+        background_color: '#f3fbf0',
         display: 'standalone',
         orientation: 'portrait',
         start_url: '/',

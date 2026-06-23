@@ -26,7 +26,7 @@ export default function LanguageScreen({ onDone }: { onDone: () => void }) {
       <SakuraPetals />
       <div className={s.center}>
         <span className={s.emoji}>{HERO_EMOJI[theme]}</span>
-        <h1 className={s.title}>Parc à chiens<br />Dog Park</h1>
+        <h1 className={s.title}>Caniparc<br />Chavigny</h1>
         <p className={s.tag}>Boisbriand</p>
 
         <ThemeSwitcher />
