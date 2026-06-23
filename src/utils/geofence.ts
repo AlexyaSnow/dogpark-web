@@ -1,7 +1,7 @@
 export const PARK = {
   latitude: 45.60392984155466,
   longitude: -73.83079964172741,
-  radius: 45, // mètres — centre→coin mesuré à 29 m + ~16 m de marge GPS (couvert d'arbres)
+  radius: 60, // mètres — centre→coin mesuré à 29 m + ~31 m de marge GPS (couvert d'arbres)
   name: 'Parc à chiens — Parc de Chavigny, Boisbriand',
 };
 
