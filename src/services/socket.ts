@@ -2,7 +2,7 @@ import { io, Socket } from 'socket.io-client';
 
 const SERVER_URL = import.meta.env.DEV
   ? 'http://localhost:3001'
-  : import.meta.env.VITE_SERVER_URL ?? 'https://dogpark-server.fly.dev';
+  : import.meta.env.VITE_SERVER_URL ?? 'https://dogpark-server.onrender.com';
 
 let socket: Socket | null = null;
 
