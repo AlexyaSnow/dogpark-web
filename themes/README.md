@@ -1,8 +1,24 @@
 # 🎨 Thèmes — Parc à chiens Boisbriand
 
-Sauvegarde des thèmes visuels de l'application. Chaque dossier contient les
-fichiers CSS complets d'un thème. On peut revenir à n'importe quel thème en
-copiant ses fichiers dans `src/`.
+## ✨ Sélecteur intégré (méthode principale)
+
+L'app a maintenant un **sélecteur de thème en direct** sur l'écran d'accueil :
+3 pastilles **Sakura 🌸 · Nature 🌿 · Neutre ✨**. Un clic change tout
+instantanément, et le choix est mémorisé (localStorage `dogpark_theme`).
+
+- Les couleurs sont des **jetons CSS** définis dans `src/index.css`
+  (`[data-theme='sakura' | 'nature' | 'neutre']`).
+- Pour **ajouter un thème** : ajouter un bloc `[data-theme='xxx']` dans
+  `src/index.css`, l'entrée dans `THEMES` de `src/context/ThemeContext.tsx`,
+  et ses couleurs de carte dans `MAP_COLORS`.
+
+---
+
+## 📦 Snapshots de secours (ci-dessous)
+
+Sauvegarde des anciens fichiers CSS, au cas où. Chaque dossier contient les
+fichiers complets d'un thème. La méthode manuelle ci-dessous reste valable mais
+n'est plus nécessaire grâce au sélecteur intégré.
 
 ---
 
