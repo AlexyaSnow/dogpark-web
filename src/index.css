@@ -5,7 +5,7 @@
    3 thèmes : Sakura 🌸 · Nature 🌿 · Neutre ✨
    ════════════════════════════════════════════════════════════ */
 
-[data-theme='sakura'] {
+:root[data-theme='sakura'] {
   --bg: linear-gradient(170deg, #fff6ef 0%, #ffe6ee 46%, #eaf2ff 100%);
   --font-display: 'Zen Maru Gothic', system-ui, sans-serif;
   --font-body: 'M PLUS Rounded 1c', system-ui, sans-serif;
@@ -44,7 +44,7 @@
 }
 
 :root,
-[data-theme='nature'] {
+:root[data-theme='nature'] {
   --bg: linear-gradient(170deg, #f3fbf0 0%, #e3f6e0 48%, #d6f0ea 100%);
   --font-display: 'Zen Maru Gothic', system-ui, sans-serif;
   --font-body: 'M PLUS Rounded 1c', system-ui, sans-serif;
@@ -80,7 +80,7 @@
   --tooltip-text: #2e7d46;
 }
 
-[data-theme='neutre'] {
+:root[data-theme='neutre'] {
   --bg: #f6f5f3;
   --font-display: 'Inter', system-ui, sans-serif;
   --font-body: 'Inter', system-ui, sans-serif;

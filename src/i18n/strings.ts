@@ -74,7 +74,7 @@ const strings: Record<Lang, Strings> = {
     parkClosedBack: 'Revenir demain',
 
     // Map screen
-    parkName: 'Caniparc Chavigny',
+    parkName: 'Parc de Chavigny',
     leave: '← Partir',
     visitors: (n: number) => `${n} ${n === 1 ? 'visiteur' : 'visiteurs'}`,
     outOfPark: 'Tu as quitté le parc',
