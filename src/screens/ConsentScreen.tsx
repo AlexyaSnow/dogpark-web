@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useLang } from '../context/LanguageContext';
 import { useSession } from '../context/SessionContext';
 import SakuraPetals from '../components/SakuraPetals';
+import ThemeSwitcher from '../components/ThemeSwitcher';
 import { useTheme, HERO_EMOJI } from '../context/ThemeContext';
 import s from './screens.module.css';
 
@@ -46,6 +47,10 @@ export default function ConsentScreen({ onEnter, onSpectate }: { onEnter: () => 
         <button className={s.textBtnGreen} onClick={onSpectate} style={{ marginTop: 4 }}>
           {t.spectate}
         </button>
+
+        <div style={{ marginTop: 18 }}>
+          <ThemeSwitcher />
+        </div>
       </div>
     </div>
   );
